@@ -34,11 +34,6 @@ router.get('/', (req: Request, res: Response) => {
   `)
 })
 
-router.get('/logout', (req: Request, res: Response) => {
-  req.session = undefined
-  return res.redirect('/')
-})
-
 router.get('/protected', requireAuth, (req: Request, res: Response) => {
   res.send('Welcome to protected route, logged in user!')
 })
