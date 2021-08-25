@@ -10,10 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var decorators_1 = require("./decorators");
-function logger(req, res, next) {
-    console.log('Request was made');
-    next();
-}
 var LoginController = /** @class */ (function () {
     function LoginController() {
     }
@@ -28,13 +24,15 @@ var LoginController = /** @class */ (function () {
         }
         return res.send('you must provide an email or password');
     };
+    LoginController.prototype.getRegister = function (req, res) {
+        res.render('register');
+    };
     LoginController.prototype.getLogout = function (req, res) {
         req.session = undefined;
         return res.redirect('/');
     };
     __decorate([
         decorators_1.get('/login'),
-        decorators_1.use(logger),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
@@ -46,6 +44,12 @@ var LoginController = /** @class */ (function () {
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], LoginController.prototype, "postLogin", null);
+    __decorate([
+        decorators_1.get('/register'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], LoginController.prototype, "getRegister", null);
     __decorate([
         decorators_1.get('/logout'),
         __metadata("design:type", Function),

@@ -25,7 +25,7 @@ var RootController = /** @class */ (function () {
         if (req.session && req.session.loggedIn) {
             return res.send("\n        <div>\n          <div>You are logged in!</div>\n          <a href=\"/auth/logout\">Logout</a>\n        </div>\n      ");
         }
-        return res.send("\n      <div>\n        <div>You are not logged in!</div>\n        <a href=\"/auth/login\">Login</a>\n      </div>\n    ");
+        return res.redirect('/auth/login');
     };
     RootController.prototype.getProtected = function (req, res) {
         res.send('Welcome to protected route, logged in user!');

@@ -24,12 +24,7 @@ class RootController {
       `)
     }
 
-    return res.send(`
-      <div>
-        <div>You are not logged in!</div>
-        <a href="/auth/login">Login</a>
-      </div>
-    `)
+    return res.redirect('/auth/login')
   }
   
   @get('/protected')

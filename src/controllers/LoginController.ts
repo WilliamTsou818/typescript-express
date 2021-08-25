@@ -20,6 +20,11 @@ class LoginController {
     return res.send('you must provide an email or password')
   }
   
+  @get('/register')
+  getRegister(req: Request, res: Response) {
+    res.render('register')
+  }
+  
   @get('/logout')
   getLogout(req: Request, res: Response) {
   req.session = undefined
